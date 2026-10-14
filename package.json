@@ -1,0 +1,27 @@
+{
+  "name": "sr-hw03",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "TZ='Asia/Jakarta' node index.js"
+  },
+  "keywords": [],
+  "author": "Rahmat",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "dotenv": "^18.0.6",
+    "express": "^5.2.1",
+    "serialport": "^13.0.0"
+  },
+  "devDependencies": {
+    "@yao-pkg/pkg": "^6.23.0"
+  },
+  "pkg": {
+    "assets": [
+      "node_modules/@serialport/bindings-cpp/prebuilds/**/*"
+    ]
+  }
+}
