@@ -23,12 +23,13 @@ async function sendMeasurement(measurement) {
 
     try {
         response = await fetch(
-            `${apiBaseUrl.replace(/\/$/, '')}/api/scale/current`,
+            `${apiBaseUrl.replace(/\/$/, '')}/scale/current`,
             {
                 method: 'POST',
-                headers: {
+              headers: {
+                Authorization: `Bearer ${process.env.SCALE_API_TOKEN}`,
+                Accept: 'application/json',
                     'Content-Type': 'application/json',
-                    'Accept': 'application/json',
                 },
                 body: JSON.stringify(payload),
             }
@@ -39,8 +40,9 @@ async function sendMeasurement(measurement) {
         );
     }
 
-    const responseText = await response.text();
-
+  const responseText = await response.text();
+  const token = process.env.SCALE_API_TOKEN;
+    console.log("Ini harusnya token: ", token);
     console.log('HTTP Status:', response.status);
     console.log('Respons mentah:', responseText);
 
